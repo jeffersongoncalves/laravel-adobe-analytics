@@ -1,0 +1,69 @@
+{
+    "name": "jeffersongoncalves/laravel-adobe-analytics",
+    "description": "PHP/Laravel client for the Adobe Analytics 2.0 REST API: report suites, dimensions, metrics, segments and report runs, with OAuth Server-to-Server token handling built in.",
+    "keywords": [
+        "laravel",
+        "adobe",
+        "adobe-analytics",
+        "analytics",
+        "api"
+    ],
+    "homepage": "https://github.com/jeffersongoncalves/laravel-adobe-analytics",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Jefferson Gonçalves",
+            "email": "gerson.simao.92@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/http": "^12.0|^13.0",
+        "illuminate/support": "^12.0|^13.0",
+        "spatie/laravel-package-tools": "^1.14.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.24",
+        "orchestra/testbench": "^10.0|^11.0",
+        "pestphp/pest": "^3.7.4|^4.0",
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JeffersonGoncalves\\AdobeAnalytics\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JeffersonGoncalves\\AdobeAnalytics\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "analyse": "vendor/bin/phpstan analyse",
+        "format": "vendor/bin/pint",
+        "test": "vendor/bin/pest"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JeffersonGoncalves\\AdobeAnalytics\\AdobeAnalyticsServiceProvider"
+            ],
+            "aliases": {
+                "AdobeAnalytics": "JeffersonGoncalves\\AdobeAnalytics\\Facades\\AdobeAnalytics"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
